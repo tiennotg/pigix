@@ -39,8 +39,9 @@ class Recorder:
 	def __change_file_name_if_exists(self, filename):
 		if isfile(filename):
 			logging.warning("file '"+filename+"' already exists. Saving into '"+filename+".new'.")
-			filename += ".new"
-		return filename
+			return self.__change_file_name_if_exists(filename + ".new")
+		else:
+			return filename
 		
 	def __exec(self, args):
 		process = Popen(args,stdout=PIPE,stderr=STDOUT)
