@@ -49,10 +49,10 @@ class Recorder:
 		while newline:
 			line = newline
 			
-			# Les lignes de moins de 5 caractères concernent le niveau sonore
-			if len(line) <= 5 and self.s:
+			# Lines with the '%' char are related to sound level
+			if self.s and b'%' in line:
 				try:
-					self.s.send(line)
+					self.s.send(line[-4:])
 				except Exception as e:
 					logging.warning(str(e.args))
 					self.s = False
@@ -66,7 +66,7 @@ class Recorder:
 		process.wait()
 		
 		if process.returncode != 0:
-			logging.error(line.decode('utf-8','ignore'))
+			logging.error(line = line.decode('utf-8','ignore'))
 			raise Exception("Error",args[0]+" returns an error. Check logs.")
 			
 	def __init__(self, pige_dir):
