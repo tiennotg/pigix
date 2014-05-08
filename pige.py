@@ -13,7 +13,7 @@ parser.add_argument('directory',type=str,help='Directory where the recorded file
 parser.add_argument('--rec-dir',type=str,help="Directory where the cue file is recorded.")
 parser.add_argument('--log-dir',type=str,default="~",help="Directory where logs are stored. Default: $HOME.")
 parser.add_argument('--compress',nargs=2,metavar=("FORMAT","BITRATE"),
-					default=("mp3",128),help="Compress recorded files.")
+					default=("ogg",128),help="Compress recorded files.")
 parser.add_argument('--no-compress',action='store_true',help="Disable compression.")
 
 args = parser.parse_args()

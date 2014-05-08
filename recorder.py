@@ -114,6 +114,15 @@ class Recorder:
 				new_file])
 			remove(self.last_file)
 			self.last_file = new_file
+		elif format == "ogg":
+			new_file = self.__change_file_name_if_exists(self.last_file.replace(".wav",".ogg"))
+			self.__exec([
+				"oggenc",
+				"-b", str(bitrate),
+				"-o", new_file,
+				self.last_file])
+			remove(self.last_file)
+			self.last_file = new_file
 		else:
 			logging.error("File format '"+format+"' not found.")
 			raise Exception("Error","File format '"+format+"' not found.")
