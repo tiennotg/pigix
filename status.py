@@ -5,13 +5,15 @@ import socket
 import select
 import multiprocessing
 
-# python 3
-from gi.repository import Gtk
-from gi.repository import GObject
+# Try to import Gtk for Python 3
+try:
+	from gi.repository import Gtk
+	from gi.repository import GObject
+except:
+# If it doesn't work, try to import for Python 2
+	import gtk as Gtk
+	import gobject as GObject
 
-# python 2
-#import gtk as Gtk
-#import gobject as GObject
 
 HOST = 'localhost'
 PORT = 32767
