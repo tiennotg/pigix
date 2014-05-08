@@ -4,6 +4,7 @@
 import socket
 import select
 import multiprocessing
+from const import HOST,PORT
 
 # Try to import Gtk for Python 3
 try:
@@ -13,10 +14,6 @@ except:
 # If it doesn't work, try to import for Python 2
 	import gtk as Gtk
 	import gobject as GObject
-
-
-HOST = 'localhost'
-PORT = 32767
 
 class StatusWindow(Gtk.Window):
 	def __init__(self):

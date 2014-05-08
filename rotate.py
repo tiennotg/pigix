@@ -6,6 +6,7 @@ from os.path import expanduser,join,isfile,abspath, getsize
 from os import remove,rename,listdir
 import re
 import datetime
+from const import LOG_FILE
 
 def __rotate_records(directory, rotation):
 	directory = abspath(expanduser(directory))

@@ -8,9 +8,7 @@ import logging
 import warnings
 import time
 from datetime import datetime
-
-HOST = 'localhost'
-PORT = 32767
+from const import HOST,PORT
 
 class Recorder:
 	

@@ -5,6 +5,7 @@ import recorder
 import logging
 import argparse
 from os.path import expanduser,join
+from const import LOG_FILE
 
 parser = argparse.ArgumentParser(description="Radio recorder.")
 parser.add_argument('duration',type=int,help='Duration of the recorded file.')
@@ -17,7 +18,7 @@ parser.add_argument('--no-compress',action='store_true',help="Disable compressio
 
 args = parser.parse_args()
 
-logging.basicConfig(filename=join(expanduser(args.log_dir),'logs'),
+logging.basicConfig(filename=join(expanduser(args.log_dir),LOG_FILE),
 					format='[%(asctime)s] %(levelname)s: %(message)s',
 					level=logging.INFO)
 
