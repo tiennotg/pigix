@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser(description="Radio recorder.")
 parser.add_argument('duration',type=int,help='Duration of the recorded file.')
 parser.add_argument('directory',type=str,help='Directory where the recorded files are stored.')
 parser.add_argument('--rec-dir',help="Directory where the cue file is recorded.")
-parser.add_argument('--log-dir',help="Path to the directory where logs are stored. Default: $HOME.")
+parser.add_argument('--log-dir',help="Directory where logs are stored. Default: $HOME.")
 
 args = parser.parse_args()
 
