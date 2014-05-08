@@ -13,6 +13,7 @@ parser.add_argument('--rec-dir',type=str,help="Directory where the cue file is r
 parser.add_argument('--log-dir',type=str,default="~",help="Directory where logs are stored. Default: $HOME.")
 parser.add_argument('--compress',nargs=2,metavar=("FORMAT","BITRATE"),
 					default=("mp3",128),help="Compress recorded files.")
+parser.add_argument('--no-compress',action='store_true',help="Disable compression.")
 
 args = parser.parse_args()
 
@@ -22,5 +23,6 @@ logging.basicConfig(filename=join(expanduser(args.log_dir),'logs'),
 
 record = recorder.Recorder(args.directory)
 record.record(args.duration, args.rec_dir)
-record.compress(args.compress[0],args.compress[1])
+if not args.no_compress:
+	record.compress(args.compress[0],args.compress[1])
 exit(0)
